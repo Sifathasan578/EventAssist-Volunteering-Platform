@@ -1,145 +1,252 @@
-# 🤝 EventAssist 🤝
+# 🚀 **EventAssist – Volunteer Engagement Platform**
 
-This project is a Volunteer Engagement Platform designed to connect users with social causes and volunteer opportunities. It allows users to register, manage their profiles, discover and join volunteer events, post and respond to community help requests, and form teams for long-term initiatives.
-![Database](https://res.cloudinary.com/drpasy4d2/image/upload/v1742228913/handson_o00vco.png)
+A full-stack platform designed to connect individuals with meaningful volunteer opportunities, community help requests, and long-term social initiatives.
+Users can register, join events, create teams, respond to help posts, and track their impact over time.
 
-## 🛠️ Tech Stack
+---
 
-**🌍 Front-end:** React.js, TailwindCSS
+# 🛠️ **Tech Stack**
 
-**🖥️ Back-end:** Node.js, Express.js
+### **Frontend**
 
-**🛢️ Database:** PostgreSQL
+* React.js
+* TailwindCSS
 
-**🔑 Authentication:** JWT (JSON Web Token)
+### **Backend**
 
-## 🌟 Features
+* Node.js
+* Express.js
 
-1️⃣ User Registration & Profile Management
+### **Database**
 
--   Secure user authentication and authorization with email and password (JWT).
--   User profiles containing basic info, skills, and supported causes.
--   Profile edit functionality and volunteer history tracking.
+* **MongoDB** (based on the uploaded project files)
 
-2️⃣ Discover & Join Volunteer Events
+### **Authentication**
 
--   Users and organizations can create events with title, description, date, time, location, and category.
--   Public event feed with filters for category, location, and availability.
--   One-click registration for events.
+* JWT (JSON Web Token)
 
-3️⃣ Community Help Requests
+---
 
--   Users and organizations can post requests for help.
--   Volunteers can offer assistance through comments.
--   Requests categorized by urgency (low, medium, urgent).
--   Better UI like other social media platforms
+# 🌟 **Key Features**
 
-4️⃣ Form Teams & Group Initiatives
+### **1️⃣ User Accounts & Profiles**
 
--   Users can create private or public volunteer teams.
--   Strictly authorization for private groups from feed.
--   User can access their joined groups list.
--   Teams have dashboards showing members, events, and achievements.
--   A leaderboard to highlight the most active teams (manually).
+* Secure JWT-based authentication
+* User profiles with skills, interests, and volunteer history
+* Editable profile settings
+* Automatic tracking of volunteering activity
 
-5️⃣ Impact Tracking & Social Recognition
+---
 
--   Users can log their volunteering hours.
--   Platform events volunteering hours will be automatically added.
--   Based on the hours automatically points will be generated.
--   Based on hours certificates will be provided to the user.
--   A leaderboard to highlight the most active members automatically.
+### **2️⃣ Discover & Join Volunteer Events**
 
-## 🛢️ Database Schema
+* Create events with details like title, category, date, location
+* Public event feed with filters
+* One-click event registration
+* Organizer and participant views
 
-Link: [https://drive.google.com/file/d/12xleV5gVxguQCDjuqcvK09d--YEUtBb4/view?usp=sharing]
+---
 
+### **3️⃣ Community Help Requests**
+
+* Users can post help requests (like social support platforms)
+* Volunteers can comment and offer help
+* Requests categorized by urgency (low, medium, urgent)
+* Social feed-style interface for better engagement
+
+---
+
+### **4️⃣ Teams & Group Initiatives**
+
+* Public or private volunteer teams
+* Private teams protected by membership authorization
+* Dashboard for team events, members, and achievements
+* Manual or automatic leaderboard options
+
+---
+
+### **5️⃣ Impact Tracking & Recognition**
+
+* Log volunteer hours
+* Event hours auto-added to user profiles
+* Point system based on activity
+* Certificates generated from accumulated points/hours
+* Leaderboard for most active volunteers
+
+---
+
+# 🗄️ **Database Schema**
+
+Database diagrams & schema design:
+
+🔗 **Google Drive Link**
+[https://drive.google.com/file/d/12xleV5gVxguQCDjuqcvK09d--YEUtBb4/view?usp=sharing](https://drive.google.com/file/d/12xleV5gVxguQCDjuqcvK09d--YEUtBb4/view?usp=sharing)
+
+📌 **ER Diagram**
 ![Database](https://res.cloudinary.com/drpasy4d2/image/upload/v1742204114/EventAssist.drawio_1_cyfew8.png)
 
-## 📥 Installation
+---
 
-Install my-project with npm 🚀
+# 📦 **Installation & Setup**
 
-```bash
-  git clone https://github.com/Asiful-Haque/EventAssist-Volunteering_Platform
-  cd EventAssist-Volunteering_Platform
-```
+## **1. Clone the Repository**
 
 ```bash
-  Install dependencies:
-  npm install
+git clone https://github.com/Asiful-Haque/EventAssist-Volunteering_Platform
+cd EventAssist-Volunteering_Platform
 ```
+
+---
+
+## **2. Install Dependencies**
+
+Install both frontend and backend dependencies:
+
+### **Backend**
 
 ```bash
-  Set up environment variables:
-  Create a .env file and add necessary credentials:
-  DATABASE_URL=your_database_url
-  JWT_SECRET=your_secret_key
+cd backend
+npm install
 ```
+
+### **Frontend**
 
 ```bash
-  Start the server:
-  frontend: npm start
-  backend: node app.js
+cd ../frontend
+npm install
 ```
 
-## 🔗 API Reference
+---
 
-#### 👤 User
+## **3. Environment Variables**
 
-```http
-POST /api/users/register - Register a new user
-POST /api/users/login - Authenticate user and return a token
-POST /api/users/volunteering-history - Add users volunteering history
-GET /api/users/volunteering-history - fetch users volunteering history
-GET /api/users/profile - Retrieve user profile data
-PUT /api/users/edit_profile - Edit user profile details
-PUT /api/users/update_points - Update user point automatically
-GET /api/users/sorted_by_points - Get users to show in leaderboard
+Create `.env` files inside **backend** (and frontend if needed).
+
+### **Backend `.env`**
+
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
 ```
 
-#### 📊 Dashboard
+If using local MongoDB:
 
-```http
-/api/dashboard - Base Route
+```
+MONGO_URI=mongodb://127.0.0.1:27017/eventassist
 ```
 
-#### 🌍 Community Help Post
+---
 
-```http
-POST /api/helpPost/create_post - Create a new help Post
-GET /api/helpPost/getPosts - Fetch all help posts
-POST /api/helpPost/submitComment - Submit a comment to the posts
-GET /api/helpPost/getComments/:post_id - Get comments for the post
-```
+# 🚀 **Running the Project**
 
-#### 🎟️ Events
-
-```http
-POST /api/event/add_event - Create a new event
-GET /api/event/get_events - Fetch all events
-```
-
-#### 🏆 Teams
-
-```http
-GET /api/teams/get_teams - Retrieve all teams
-POST /api/teams/add_teams - Create a new team
-POST /api/teams/see_members - Fetch all members of a team
-POST /api/teams/see_events - Fetch all events organized by a team
-GET /api/teams/see_private_teams - Fetch all private groups of each user
-```
-
-## 🏎️ Run Locally
-
-Install dependencies
+## **Start Backend**
 
 ```bash
-  npm install
+cd backend
+npm start
 ```
 
-Start the server
+Runs on:
+👉 [http://localhost:5000](http://localhost:5000)
+
+## **Start Frontend**
 
 ```bash
-  npm start
+cd frontend
+npm start
 ```
+
+Runs on:
+👉 [http://localhost:3000](http://localhost:3000)
+
+---
+
+# 🔗 **API Reference**
+
+## 👤 **User**
+
+```
+POST /api/users/register
+POST /api/users/login
+POST /api/users/volunteering-history
+GET  /api/users/volunteering-history
+GET  /api/users/profile
+PUT  /api/users/edit_profile
+PUT  /api/users/update_points
+GET  /api/users/sorted_by_points
+```
+
+---
+
+## 📊 **Dashboard**
+
+```
+GET /api/dashboard
+```
+
+---
+
+## 🌍 **Community Help Posts**
+
+```
+POST /api/helpPost/create_post
+GET  /api/helpPost/getPosts
+POST /api/helpPost/submitComment
+GET  /api/helpPost/getComments/:post_id
+```
+
+---
+
+## 🎟️ **Events**
+
+```
+POST /api/event/add_event
+GET  /api/event/get_events
+```
+
+---
+
+## 🏆 **Teams**
+
+```
+GET  /api/teams/get_teams
+POST /api/teams/add_teams
+POST /api/teams/see_members
+POST /api/teams/see_events
+GET  /api/teams/see_private_teams
+```
+
+---
+
+# 📁 **Project Structure**
+
+```
+EventAssist/
+│── backend/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── config/
+│   ├── app.js
+│
+│── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│
+└── README.md
+```
+
+---
+
+# 🤝 **Contributing**
+
+Contributions are welcome!
+Fork the repo → create a feature branch → open a pull request.
+
+---
+
+# 📄 **License**
+
+MIT License (optional — add if needed)
